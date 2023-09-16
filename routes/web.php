@@ -18,15 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $batch = [
-        new PullRepo('errandpoint/project1'),
-        new PullRepo('errandpoint/project2'),
-        new PullRepo('errandpoint/project3')
-    ];
-
-    Bus::batch($batch)
-    ->allowFailures()
-    ->dispatch();
+    Deploy::dispatch();
 
     return view('welcome');
 });
