@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    Deploy::dispatch();
-
+    \App\Jobs\TestJob::dispatch('THIS_IS_MY_SECRET');
     return view('welcome');
 });
